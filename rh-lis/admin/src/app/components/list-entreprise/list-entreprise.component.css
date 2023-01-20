@@ -1,0 +1,53 @@
+.list{
+	height: 90vh;
+	overflow-y: scroll;
+	padding-bottom: 5%;
+}
+.list::-webkit-scrollbar {
+display: none;
+}
+.searchTerm::placeholder  {
+  font-family: FontAwesome;
+}
+.search{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons{
+	display: flex;
+	width: 20%;
+	justify-content: space-between;
+}
+.search input{
+  width: 30%;
+}
+.periode{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.dates{
+	display: flex;
+	width: 30%;
+}
+.detail{
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+}
+.cherche{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.searchh{
+	width: 40%;
+} 
+.searchh input{
+	width: 100%;
+}
+.tab{
+  height: 70vh;
+  overflow-y: scroll;
+}

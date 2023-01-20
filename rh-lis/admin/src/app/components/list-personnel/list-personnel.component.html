@@ -1,0 +1,41 @@
+<div class="search">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher un personnel &#61442;"
+      /><div class="buttons" *ngIf="privilege=='Admin'">
+        <input class="add" type="button" value="Ajouter" name="" routerLink="/add-personnel">
+        <!-- <input class="add" type="button" value="Importer" name="" > -->
+      </div>
+
+</div>
+<div class="list row">
+
+  <div class="col-md-6 list" >
+    <h4>Liste du personnels </h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let personnel of personnels | filter: term; let i = index "
+        [class.active]="i == currentIndex"
+        (click)="setActivePersonnel(personnel, i)"
+      >
+        {{ personnel.nom }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentPersonnel">
+      <voir-personnel
+        (refreshList)="refreshList()"
+        [personnel]="currentPersonnel"
+      ></voir-personnel>
+    </div>
+
+    <div *ngIf="!currentPersonnel">
+      <br />
+      <p>Please click on a Personnel...</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="haut">
+<div class="search">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher une entreprise &#61442;"
+      />
+</div>
+<div class="print">
+  <input type="button" name="" value="Imprimer" (click)="print()">
+</div>  
+</div>
+
+
+<div class="cartes">
+<div class="carte" *ngFor="let interimaire of interimaires | filter: term; let i = index ">
+  <div class="recto">
+     <div class="axb">
+      © @xb rhlis 2022
+     </div>
+  </div>
+  <div class="verso">
+    <div class="left">
+      <div class="photo">
+        <img src="{{interimaire.url}}">
+      </div>
+      <div class="nom">
+        {{interimaire.nom}}
+      </div>
+      <div class="poste">
+        {{interimaire.poste}}
+      </div>
+    </div>
+    <div class="right">
+      <ngx-qrcode 
+        elementTyp="url" 
+        value="{{interimaire.matricule}}"
+        cssClass="aclass"
+        [margin] = 'margin'
+        [colorLight]='backgroundColor'
+        [colorDark]='redColor'
+        [errorCorrectionLevel]="correctionLevel"
+        >
+      </ngx-qrcode>
+      <div class="lieuaff">
+        {{interimaire.lieuaff}}
+      </div>
+    </div>
+  </div>
+</div>
+</div>

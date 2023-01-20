@@ -1,0 +1,40 @@
+<div class="add">
+  <button type="" class="btn btn-primary" routerLink="/list-vente">Liste des ventes</button>
+</div>
+<form>
+
+  <div class="flex">
+    <div class="form-group">
+      <label for="nom">Produit</label>
+      	<select class="form-control" aria-label="Default select example" (change)="setActiveVente()" name="produit" [(ngModel)]="vente.produit">
+        <option value="{{produit.key}}"*ngFor="let produit of produits" >{{produit.nom}} </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input disabled type="number" name="prix" class="form-control" [(ngModel)]="vente.prix-vente.reduction" id="prix" aria-describedby="emailHelp" >
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="qte">Quantité</label>
+      <input type="" name="qte" class="form-control" [(ngModel)]="vente.qte" id="qte" aria-describedby="emailHelp" placeholder="Entrez la quantité">
+      <small id="emailHelp" class="form-text text-muted">Mettre la qantité.</small>
+    </div>
+    <div class="form-group">
+      <label for="reduction">Reduction</label>
+      <input type="number" name="reduction" class="form-control" [(ngModel)]="vente.reduction" id="reduction" aria-describedby="emailHelp" >
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="qte">Total</label>
+      <div disabled name="total" [(ngModel)]="vente.total"class="form-control"  id="total">{{(vente.prix-vente.reduction)*vente.qte}}</div>
+      <small id="emailHelp" class="form-text text-muted">Voilà le  total</small>
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary" (click)="saveVente()">Submit</button>
+</form> 
+

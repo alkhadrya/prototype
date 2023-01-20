@@ -1,0 +1,110 @@
+<div style="height: 86vh;" *ngIf="Admin && login">
+  <mat-toolbar class="bg">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{currentParametre.nom}}</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a routerLink="home_admin" mat-button color="#ffff"><i class="fa-solid fa-house-chimney"></i>Home</a>
+        <a routerLink="add-produit" mat-button><i class="fa-solid fa-plus-minus"></i>Ajout de produit</a>
+        <a routerLink="list-produit" mat-button><i class="fa-solid fa-clipboard-list"></i>Liste des produits</a>
+        <a routerLink="add-vente" mat-button><i class="fa-solid fa-cart-plus"></i>Faire une vente</a>
+        <a routerLink="list-dette" mat-button><i class="fa-solid fa-money-check-dollar"></i>Section dettes</a>
+        <a routerLink="inventaire" mat-button><i class="fa-solid fa-chart-line"></i>Inventaire</a>
+        <a routerLink="parametre" mat-button><i class="fa-solid fa-sliders"></i>Parametre</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill >
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a (click)="sidenav.toggle()"routerLink="home_admin" mat-list-item><i class="fa-solid fa-house-chimney"></i>Home</a>
+        <a (click)="sidenav.toggle()"routerLink="add-produit" mat-list-item><i class="fa-solid fa-plus-minus"></i>Ajout de produit</a>
+        <a (click)="sidenav.toggle()"routerLink="list-produit" mat-list-item><i class="fa-solid fa-clipboard-list"></i>Liste des produits</a>
+        <a (click)="sidenav.toggle()"routerLink="add-vente" mat-list-item><i class="fa-solid fa-cart-plus"></i>Faire une vente</a>
+        <a (click)="sidenav.toggle()"routerLink="list-dette" mat-list-item><i class="fa-solid fa-money-check-dollar"></i>Section dettes</a>
+        <a (click)="sidenav.toggle()"routerLink="inventaire" mat-list-item><i class="fa-solid fa-chart-line"></i>Inventaire</a>
+        <a (click)="sidenav.toggle()"routerLink="parametre" mat-list-item><i class="fa-solid fa-sliders"></i>Parametre</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</div>
+
+
+
+<div style="height: 86vh;" *ngIf="!Admin">
+  <mat-toolbar class="bg">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{currentParametre.nom}}</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a routerLink="/" mat-button color="#ffff"><i class="fa-solid fa-house-chimney faa"></i>Home</a>
+        <a href="https://wa.me/{{currentParametre.contact}}?text='Bonsoir madame. Jai eu votre numero sur votre site'" mat-button ><i class="fa-brands fa-whatsapp faa"></i>Whatsapp</a>
+        <a routerLink="/" mat-button><i class="fa-solid fa-circle-info faa"></i>Aide</a>
+        <a (click)="Admin=true" mat-button><i class="fa-solid fa-right-from-bracket faa"></i>Se connecter</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill >
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+        <a (click)="sidenav.toggle()"routerLink="/" mat-list-item><i class="fa-solid fa-house-chimney faa"></i>Home</a>
+        <a (click)="sidenav.toggle()"href="https://wa.me/{{currentParametre.contact}}?text='Bonsoir madame. Jai eu votre numero sur votre site'20%a20%quote" mat-list-item><i class="fa-brands fa-whatsapp faa"></i>Whatsapp</a>
+        <a (click)="sidenav.toggle()"routerLink="/" mat-list-item ><i class="fa-solid fa-circle-info faa"></i>Aide</a>
+        <a (click)="Admin=true" mat-list-item><i class="fa-solid fa-right-from-bracket faa"></i>Se connecter</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+  </mat-sidenav-container>
+</div>
+
+<section *ngIf="Admin && !login">
+  
+  <div class="box">
+    
+    <div class="square" style="--i:0;"><img src="favicon.ico"></div>
+    <div class="square" style="--i:1;"><img src="favicon.ico"></div>
+    <div class="square" style="--i:2;"><img src="favicon.ico"></div>
+    <div class="square" style="--i:3;"><img src="favicon.ico"></div>
+    <div class="square" style="--i:4;"><img src="favicon.ico"></div>
+    <div class="square" style="--i:5;"><img src="favicon.ico"></div>
+    
+   <div class="container"> 
+    <div class="form"> 
+      <h2>RH LIS</h2>
+      <form action="">
+        <div class="inputBx">
+          <input type="text" name="login" required="required" [(ngModel)]="currentPersonnel.login">
+          <span>Login</span>
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="inputBx password">
+          <input id="password-input" name="mdp" type="password" name="password" required="required" [(ngModel)]="currentPersonnel.mdp">
+          <span>Password</span>
+          <i class="fas fa-key"></i>
+        </div>
+
+        <div class="inputBx sub">
+          <input type="submit" value="Log in" (click)="verification()"> 
+        </div>
+      </form>
+    </div>
+  </div>
+    
+  </div>
+</section>
+
+
+<div class="all" *ngIf="login">

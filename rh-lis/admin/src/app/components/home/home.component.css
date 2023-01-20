@@ -1,0 +1,83 @@
+/*.charts::-webkit-scrollbar {
+display: none;
+}*/
+h1{
+	text-align: center;
+}
+.charts{
+	display: flex;
+/*	flex-direction: column;*/
+	height: 80vh;
+	overflow-y: scroll;
+	padding-bottom: 5%;
+}
+#container{
+	 width: 50%;
+   height: 90;
+}
+#container2{
+	 width: 50%;
+   height: 90vh;
+}
+.card{
+	display: flex;
+	flex-direction: row;
+	width: 20%;
+	justify-content: space-between;
+	border-radius: 15px;
+	color: white;
+	border: solid white 2px;
+}
+.nombre{
+	border-bottom: 2px solid white;
+	width: 100%;
+	text-align: center;
+}
+.autre{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+}
+.cards{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.icon{
+	text-align: center;
+	width: 30%;
+	font-size: 7vh;
+	border-right: 2px solid white;
+}
+.interimaire{
+	background-color: blue;
+}
+.societe{
+	background-color: orange;
+}
+.absents{
+	background-color: red;
+}
+.present{
+	background-color: green;
+}
+@media only screen and (max-width: 685px) {
+  .icon {
+    display: none;
+  }
+  .autre{
+  	width: 100%;
+  }
+  .nam{
+  	font-size: 60%;
+  }
+  #container{
+  	display: none;
+  }
+  #container2{
+	 width: 100%;
+   height: 90vh;
+}
+}

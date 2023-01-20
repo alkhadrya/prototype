@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=El+Messiri:wght@700&display=swap");
+li{
+	cursor: pointer;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "El Messiri", sans-serif;
+}
+:root {
+    --couleur-fond:#3D5653;
+    --couleur-hover:#E2ECEB;
+    --couleur-li:#425C59;
+}
+body{
+	background-color: var(--couleur-hover);
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}

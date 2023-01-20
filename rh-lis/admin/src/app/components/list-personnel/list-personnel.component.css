@@ -1,0 +1,28 @@
+.list{
+	height: 90vh;
+	overflow-y: scroll;
+	padding-bottom: 5%;
+}
+.list::-webkit-scrollbar {
+display: none;
+}
+.searchTerm::placeholder  {
+  font-family: FontAwesome;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.search{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons{
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+}
+.search input{
+  width: 30%;
+}

@@ -1,0 +1,111 @@
+<div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                </div>
+                <div class="search">
+                    <label for="">
+                        <input type="text" placeholder="Entrez du texte">
+                        <i name="search-outine"></i>
+                    </label>
+                </div>
+                <!-- User image -->
+                <div class="user">
+
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="cardBox"> 
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <!--  La detaillee d'informations-->
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Produits recents</h2>
+                        <a href="#" class="btn"> Voir tout</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <li class="li">
+                                <span>Produit</span>
+                                <span>Prix</span>
+                                <span>Stock</span>
+                            </li>
+                        </thead>
+                            <li  class="list-group-item li"
+                            *ngFor="let produit of produits | filter: term; let i = index "
+                            [class.active]="i == currentIndex"
+                            (click)="setActiveProduit(produit, i)">
+                                <span>{{ produit.nom }} </span>
+                                <span>{{ produit.prix }} </span>
+                                <span>{{ produit.stock }} </span>
+                            </li>    
+                    </table>
+                </div>
+
+                <!-- Les clients recents -->
+                <div class="recentCustomers">
+                    <div class="current" *ngIf="currentProduit">
+                        <div class="flex">
+                            <div class="image">
+                                <img src="{{ currentProduit.url }}">
+                            </div>
+                            <div class="nom">
+                                {{ currentProduit.nom }}
+                            </div>
+                        </div>
+                        <ul class="myul">
+                            <li><i class="fa-brands fa-shopify"></i><span class="gras"> __ </span>{{ currentProduit.nom }}</li>
+                            <li><i class="fa-solid fa-layer-group"></i><span class="gras"> __ </span>{{ currentProduit.categorie }}</li>
+                            <li><i class="fa-solid fa-money-check-dollar"></i><span class="gras"> __ </span>{{ currentProduit.prix }}</li>
+                            <li><i class="fa-solid fa-barcode"></i><span class="gras"> __ </span>{{ currentProduit.matricule }}</li>
+                            <li><i class="fa-solid fa-cubes-stacked"></i><span class="gras"> __ </span>{{ currentProduit.stock }}</li>
+                        </ul>
+                        <div class="fflex">
+                            <button (click)="updateProduit()" class="btn btn-success">Modifier produit</button>
+                            <button (click)="updateProduit()" class="btn btn-danger danger">Supprimer</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->

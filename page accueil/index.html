@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body> 
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="logo-apple"></ion-icon></span>
+                        <span class="title">Logo de l'academie</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="add-circle-outline"></ion-icon></span>
+                        <span class="title">Ajouter un nouveau produit</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+                        <span class="title">Liste des produits</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="eye-outline"></ion-icon></span>
+                        <span class="title">Voir produits</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="cash-outline"></ion-icon></span>
+                        <span class="title">Liste des ventes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+                        <span class="title">Inventaire</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                        <span class="title">Aide</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- La partie principale -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="search">
+                    <label for="">
+                        <input type="text" placeholder="Entrez du texte">
+                        <ion-icon name="search-outine"></ion-icon>
+                    </label>
+                </div>
+                <!-- User image -->
+                <div class="user">
+
+                </div>
+            </div>
+
+            <!-- Cards -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
+                    <div class="iconBox">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details">
+                <!--  La detaillee d'informations-->
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Recent Orders</h2>
+                        <a href="#" class="btn"> Voir tout</a>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Identifiant</td>
+                                <td>Prix</td>
+                                <td>Payment</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Star refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paye</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paye</td>
+                                <td><span class="status delivered">delivered</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paye</td>
+                                <td><span class="status return">Return</span></td>
+                            </tr>
+                            <tr>
+                                <td>Star refrigerator</td>
+                                <td>$1200</td>
+                                <td>Paye</td>
+                                <td><span class="status inprogress">In progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Les clients recents -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Recent Customers</h2>
+                    </div>
+                    <table>
+                        <tr>
+                            <td width="60px"><div class="imgBx"> <img src="" alt="hello"></div></td>
+                            <td><h4>David <br><span>Ndakarou</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"> <img src="" alt="hello"></div></td>
+                            <td><h4>David <br><span>Ndakarou</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"> <img src="" alt="hello"></div></td>
+                            <td><h4>David <br><span>Ndakarou</span></h4></td>
+                        </tr>
+                        <tr>
+                            <td width="60px"><div class="imgBx"> <img src="" alt="hello"></div></td>
+                            <td><h4>David <br><span>Ndakarou</span></h4></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        // Mettre le menuToggle
+        let toggle = document.querySelector('.toggle')
+        let navigation = document.querySelector('.navigation')
+        let main = document.querySelector('.main')
+
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+            main.classList.toggle('active')
+        }
+        // Ajouter la classe hovered dans l'element selectionne
+        let list = document.querySelectorAll('.navigation li')
+        function activeLink(){
+            list.forEach((item)=> item.classList.remove('hovered'));
+            this.classList.add('hovered');
+        }
+        list.forEach((item)=>item.addEventListener('mouseover',activeLink))
+    </script>
+</body>
+</html>

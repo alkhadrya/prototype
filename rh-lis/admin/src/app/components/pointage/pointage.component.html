@@ -1,0 +1,58 @@
+<h1>
+	Fiche de pointage du jour
+</h1>
+<div class="search">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher une entreprise &#61442;"
+      />
+</div>
+
+<table class="table table-striped" *ngIf="privilege=='Admin'">
+        <thead>
+          <tr>
+            <th>Interimaire</th>
+            <th class="mat">Matricule</th>
+            <th>Etreprise</th>
+            <th>Heure d'arrivée</th>
+            <th>Heure de depart</th>
+            <th class="arr">Nombre d'heure travaillée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let login of loginsauj | filter: term; let i = index">
+            <td>{{login.prenom}} {{login.nom}}</td>
+            <td class="mat">{{login.matricule}}</td>
+            <td>{{login.entreprise}}</td>
+            <td>{{login.arrive | date :' HH:mm:ss '}}</td>
+            <td>{{login.descente | date :' HH:mm:ss '}}</td>
+            <td class="arr">{{calculateDiff(login.arrive,login.descente)}}</td>
+          </tr>
+
+        </tbody>
+</table>
+<table class="table table-striped" *ngIf="privilege!='Admin'">
+        <thead>
+          <tr>
+            <th>Interimaire</th>
+            <th class="mat">Matricule</th>
+            <th>Etreprise</th>
+            <th>Heure d'arrivée</th>
+            <th>Heure de depart</th>
+            <th class="arr">Nombre d'heure travaillée</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let login of societe | filter: term; let i = index">
+            <td> {{login.nom}}</td>
+            <td class="mat">{{login.matricule}}</td>
+            <td>{{login.entreprise}}</td>
+            <td>{{login.arrive | date :' HH:mm:ss '}}</td>
+            <td>{{login.descente | date :' HH:mm:ss '}}</td>
+            <td class="arr">{{calculateDiff(login.arrive,login.descente)}}</td>
+          </tr>
+
+        </tbody>
+</table>

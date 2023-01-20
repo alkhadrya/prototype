@@ -1,0 +1,63 @@
+<div class="cards" *ngIf="privilege=='Admin'">
+	<div class="interimaire card">
+		<div class="icon">
+			<i class="fa-solid fa-users"></i>
+		</div>
+		<div class="autre">
+			<div class="nombre">
+				{{nmbr_interimaire}}
+			</div>
+			<div class="nam">
+				Interimaires
+			</div>
+		</div>
+	</div>
+
+	<div class="societe card">
+		<div class="icon">
+			<i class="fa-solid fa-building"></i>
+		</div>
+		<div class="autre">
+			<div class="nombre">
+				{{nmbr_societe}}
+			</div>
+			<div class="nam">
+				Sociétés
+			</div>
+		</div>
+	</div>
+
+	<div class="absents card">
+		<div class="icon">
+			<i class="fa-solid fa-person-circle-exclamation"></i>
+		</div>
+		<div class="autre">
+			<div class="nombre">
+				{{nmbr_interimaire-nmbr_presents}}
+			</div>
+			<div class="nam">
+				Absents
+			</div>
+		</div>
+	</div>
+
+	<div class="present card">
+		<div class="icon">
+			<i class="fa-solid fa-fingerprint"></i>
+		</div>
+		<div class="autre">
+			<div class="nombre">
+				{{nmbr_presents}}
+			</div>
+			<div class="nam">
+				Presents
+			</div>
+		</div>
+	</div>
+</div>
+<div class="charts" *ngIf="privilege=='Admin'">
+	<div id="container"></div>
+<div id="container2"></div>
+</div>
+
+<h1 *ngIf="privilege!='Admin'">Bienvenue {{nom}} dans RH LIS</h1>

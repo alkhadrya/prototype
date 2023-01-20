@@ -1,0 +1,398 @@
+<div *ngIf="currentInterimaire " class="edit-form list">
+  <h1>{{currentInterimaire.nom}}</h1>
+
+<div class="photo">
+	<img src="{{currentInterimaire.url}}">
+</div>
+<div class="flex">
+
+<ul>
+	<li><span>Nom : </span>{{currentInterimaire.nom}}</li>
+	<li><span>CNI : </span>{{currentInterimaire.cni}}</li>
+	<li><span>Entreprise : </span>{{currentInterimaire.lieuaff}}</li>
+	<li><span>Lieu de naissance : </span>{{currentInterimaire.lieunaiss}}</li>
+	<li><span>Formation : </span>{{currentInterimaire.formation}}</li>
+	<li><span>Salaire : </span>{{currentInterimaire.salaire}}</li>
+	<li><span>Salaire Net : </span>{{currentInterimaire.salairenet}}</li>
+	<li><span>Telephone 1 : </span>{{currentInterimaire.tel_1}}</li> 
+	<li><span>Telephone 1 : </span>{{currentInterimaire.urgence1}}</li>
+	<li><span>Type de contrat : </span>{{currentInterimaire.typecontrat}}</li>
+	<li><span>Debut du contrat : </span>{{currentInterimaire.debutcontrat}}</li>
+</ul>
+<ul>
+	<li><span>Matricule : </span>{{currentInterimaire.matricule}}</li>
+	<li><span>Description : </span>{{currentInterimaire.nom}}</li>
+	<li><span>Matricule : </span>{{currentInterimaire.matricule}}</li>
+	<li><span>Date de naissance : </span>{{currentInterimaire.datenaiss}}</li>
+	<li><span>Poste : </span>{{currentInterimaire.poste}}</li>
+	<li><span>Retenu : </span>{{currentInterimaire.retenu}}</li>
+	<li><span>Type de paiement : </span>{{currentInterimaire.type_pay}}</li>
+	<li><span>Telephone 2 : </span>{{currentInterimaire.tel_2}}</li>
+	<li><span>Lien de parenté : </span>{{currentInterimaire.urgence2}}</li>
+	<li><span>Departement : </span>{{currentInterimaire.dpt}}</li>
+	<li><span>Fin du contrat : </span>{{currentInterimaire.fincontrat}}</li>
+</ul>
+</div>
+
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Journalier</th>
+      <th scope="col">Hebdomadaire</th>
+      <th scope="col">Mensuel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Arrivée</th>
+      <td>{{ myInterimaire.arrive | date :' HH:mm:ss'}}</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <th scope="row">Départ</th>
+      <td>{{ myInterimaire.depart | date :' HH:mm:ss'}}</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+   <!--  <tr>
+      <th scope="row">Retard accumulé</th>
+      <td>{{calculateDiff(huit,myInterimaire.arrive)}}</td>
+      <td>{{retard__week}}</td>
+      <td>{{retard__mois}}</td>
+    </tr> -->
+    <tr>
+      <th scope="row">Absence</th>
+      <td>{{abs}}</td>
+      <td>{{abs_week}}</td>
+      <td>{{abs_mois}}</td>
+    </tr>
+  </tbody>
+</table>
+
+ <form *ngIf="toggle_update">
+
+ 	<h1>Modifier les informations</h1>
+
+   <div >
+  	<div class="form-group col-12">
+			 <input type="file"
+			 id="file"
+			 #userPhoto
+			 (change)="onFileSelected($event)"
+			 name="image"
+			 autocomplete="off"
+ 			/>
+		</div>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="nom">Nom</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="nom"
+			        required
+			        [(ngModel)]="currentInterimaire.nom"
+			        name="nom"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="cni">CNI</label>
+      			<input
+			        class="form-control"
+			        id="cni"
+			        required
+			        [(ngModel)]="currentInterimaire.cni"
+			        name="cni"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="datenaiss">Date de naissance</label>
+      			<input
+			        type="date"
+			        class="form-control"
+			        id="datenaiss"
+			        required
+			        [(ngModel)]="currentInterimaire.datenaiss"
+			        name="datenaiss"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="lieunaiss">Lieu de naissance</label>
+      			<input
+			        class="form-control"
+			        id="lieunaiss"
+			        required
+			        [(ngModel)]="currentInterimaire.lieunaiss"
+			        name="lieunaiss"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="formation">Formation</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="formation"
+			        required
+			        [(ngModel)]="currentInterimaire.formation"
+			        name="formation"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="nationnalite">Nationnalité</label>
+      			<input
+			        class="form-control"
+			        id="nationnalite"
+			        required
+			        [(ngModel)]="currentInterimaire.nationnalite"
+			        name="nationnalite"
+      			/>
+    	</div>
+    </div>
+
+ <div class="flex">
+    	<div class="form-group">
+      		<label for="lieuaff">Lieu d'affectation</label>
+      			<select class="form-select form-control" 
+			       	id="lieuaff"
+			        required
+			        [(ngModel)]="currentInterimaire.lieuaff"
+			        name="lieuaff"
+			      	aria-label="Type de contrat">
+		  			<option 
+		  				*ngFor="let entreprise of entreprises; let i = index" selected value="{{entreprise.nom}}">{{entreprise.nom}}
+		  			</option>
+		</select>
+    </div>
+    	<div class="form-group">
+      		<label for="dpt">Departement</label>
+      			<input
+			        class="form-control"
+			        id="dpt"
+			        required
+			        [(ngModel)]="currentInterimaire.dpt"
+			        name="dpt"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="lieusignature">Lieu de signature</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="lieusignature"
+			        required
+			        [(ngModel)]="currentInterimaire.lieusignature"
+			        name="lieusignature"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="datesignature">Date de signature</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="datesignature"
+			        required
+			        [(ngModel)]="currentInterimaire.datesignature"
+			        name="datesignature"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="typecontrat">Type du contrat</label>
+      		<select class="form-select form-control" aria-label="Type contrat" [(ngModel)]="currentInterimaire.typecontrat">
+					  <option selected value="CDI">CDI</option>
+					  <option value="CDD">CDD</option>
+					  <option value="STAGE">STAGE</option>
+					  <option value="CPS">CPS</option>
+					</select>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="poste">Poste</label>
+      			<input
+			        class="form-control"
+			        id="poste"
+			        required
+			        [(ngModel)]="currentInterimaire.poste"
+			        name="poste"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="debutcontrat">Debut du contrat</label>
+      			<input
+			        type="date"
+			        class="form-control"
+			        id="debutcontrat"
+			        required
+			        [(ngModel)]="currentInterimaire.debutcontrat"
+			        name="debutcontrat"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="fincontrat">Fin du contrat</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="fincontrat"
+			        required
+			        [(ngModel)]="currentInterimaire.fincontrat"
+			        name="fincontrat"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="type_pay">Type de paiement</label>
+      		<input
+			        class="form-control"
+			        id="type_pay"
+			        required
+			        [(ngModel)]="currentInterimaire.type_pay"
+			        name="type_pay"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="salairenet">Salaire net</label>
+      			<input
+			        class="form-control"
+			        id="salairenet"
+			        required
+			        [(ngModel)]="currentInterimaire.salairenet"
+			        name="salairenet"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="salaire">Salaire</label>
+      		<input
+			        class="form-control"
+			        id="salaire"
+			        required
+			        [(ngModel)]="currentInterimaire.salaire"
+			        name="salaire"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="retenu">Retenu</label>
+      			<input
+			        class="form-control"
+			        id="retenu"
+			        required
+			        [(ngModel)]="currentInterimaire.retenu"
+			        name="retenu"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="tel_1">Telephone 1</label>
+      		<input
+			        class="form-control"
+			        id="tel_1"
+			        required
+			        [(ngModel)]="currentInterimaire.tel_1"
+			        name="tel_1"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="tel_2">Telephone 2</label>
+      			<input
+			        class="form-control"
+			        id="tel_2"
+			        required
+			        [(ngModel)]="currentInterimaire.tel_2"
+			        name="tel_2"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="urgence1">Telephone d'urgence</label>
+      		<input
+			        class="form-control"
+			        id="urgence1"
+			        required
+			        [(ngModel)]="currentInterimaire.urgence1"
+			        name="urgence1"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="urgence2">Lien de parenté</label>
+      			<input
+			        class="form-control"
+			        id="urgence2"
+			        required
+			        [(ngModel)]="currentInterimaire.urgence2"
+			        name="urgence2"
+      			/>
+    	</div>
+    </div>
+   <button (click)="updateInterimaire()" class="btn btn-success">Update</button>
+  </div>
+  </form>
+
+<!--   <button
+    class="badge badge-primary mr-2"
+    *ngIf="currentInterimaire.published"
+    (click)="updatePublished(false)"
+  >
+    UnPublish
+  </button>
+  <button
+    *ngIf="!currentInterimaire.published"
+    class="badge badge-primary mr-2"
+    (click)="updatePublished(true)"
+  >
+    Publish
+  </button> -->
+
+<div class="buttons">
+	 
+  <button class="bg bg-danger mr-2" (click)="deleteInterimaire()">
+    Supprimer
+  </button>
+
+  <button type="submit" class="bg bg-success" (click)="modif()">
+    Modifier les informations
+  </button>
+  <button type="submit" class="bg bg-success" (click)="contrat()">
+    Voir le contrat
+  </button>
+</div> 
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentInterimaire">
+  <br />
+  <p>Cannot access this Interimaire...</p>
+</div>

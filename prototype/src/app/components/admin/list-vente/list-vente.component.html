@@ -1,0 +1,94 @@
+<div class="search">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher un vente &#61442;"
+      />
+</div>
+<div class="add">
+  <button type="" class="btn btn-primary addd" routerLink="/list-produit">Liste des ventes</button>
+</div>
+<div class="corps">
+
+  <div class="lists">
+    <ul class="list-group">
+    	<li *ngFor="let vente of ventes.slice().reverse() | filter: term; let i = index " class="list-group-item"
+    	[class.active]="i == currentIndex"
+        (click)="setActiveVente(vente, i)">{{vente.produit}}</li>
+    </ul>
+  </div>
+  <div class="detail">
+  	<div class="text" *ngIf="!currentVente" >
+  		cliquez sur un vente
+  	</div>
+  	<div class="text" *ngIf="currentVente" >
+  		
+       
+  
+  		<table class="table table-striped table-hover">
+			<thead>
+			    <tr>
+			      <th scope="col" colspan="2">Details du produit</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">Produit</th>
+			      <td>{{currentVente.produit}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Categorrie</th>
+			      <td>{{currentVente.categorie}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Date</th>
+			      <td>{{currentVente.date | date:' MM/dd/yy / hh:mm'}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Quantité</th>
+			      <td>{{currentVente.qte}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Prix initial</th>
+			      <td>{{currentVente.prix}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Reduction</th>
+			      <td>{{currentVente.reduction}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Prix de vente</th>
+			      <td>{{currentVente.prix-currentVente.reduction}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Total</th>
+			      <td>{{currentVente.total}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">Quantité dan le Stock</th>
+			      <td>{{currentVente.stock}}</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">User</th>
+			      <td>{{currentVente.user}}</td>
+			    </tr>
+
+			  </tbody>
+		</table>
+		<div class="buttons">
+	 
+		  <button class="bg bg-danger mr-2" (click)="deleteVente()">
+		    Supprimer
+		  </button>
+
+		  <!-- <button type="submit" class="bg bg-success" (click)="modif()">
+		    Modifier 
+		  </button> -->
+		</div> 
+
+  	</div>
+  </div> 
+
+</div> 
+

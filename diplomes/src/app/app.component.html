@@ -1,0 +1,10 @@
+<button (click)="print()">Print</button>
+<div class="corps" *ngFor="let list of list">
+  <div *ngIf="list.Genre=='m'" class="nom">
+    <span class="a">à</span> M {{list.Prenoms}} {{list.Nom}}
+  </div>
+   <div *ngIf="list.Genre=='f'" class="nom">
+    <span class="a">à</span> Mme {{list.Prenoms}} {{list.Nom}}
+  </div>
+  
+</div>

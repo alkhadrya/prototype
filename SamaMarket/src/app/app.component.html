@@ -1,0 +1,32 @@
+<div class="all">
+<div id="partie_gauche">
+        <div id="profil">
+            <img src="assets/profil.jpeg" alt="photo de profil">
+            <h2>Khassylla</h2>
+            <p>Administrateur</p>
+        </div>
+        <ul>
+            <li id="li" routerLink="home" class="list-group-item" [class.active]="1 == currentIndex"
+            (click)="setActiveItem( 1)">Dashboard</li>
+            <li class="list-group-item" routerLink="add-produit"
+            [class.active]="2 == currentIndex"
+        (click)="setActiveItem( 2)">Ajouter un nouveau produit</li>
+            <li class="list-group-item"  [class.active]="3 == currentIndex" routerLink="produits"
+        (click)="setActiveItem( 3)">Listes des produits </li>
+            <li class="list-group-item" [class.active]="4 == currentIndex" routerLink="produits"
+        (click)="setActiveItem( 4)">Voir un produit</li>
+            <li class="list-group-item" routerLink="ventes"
+            [class.active]="5 == currentIndex"
+        (click)="setActiveItem( 5)">Liste des ventes du jour</li>
+            <li class="list-group-item" routerLink="ventes"
+            [class.active]="6 == currentIndex"
+        (click)="setActiveItem( 6)">Page inventaire</li>
+            <li class="list-group-item" routerLink="home"
+            [class.active]="7 == currentIndex" routerLink="home"
+        (click)="setActiveItem( 7)">Historique</li>
+        </ul>
+</div>
+<div class="contain">
+    <router-outlet></router-outlet>
+</div>
+</div>

@@ -1,0 +1,35 @@
+Les pages de l'application web:
+
+Admin: 
+	-Navabar
+		-page home
+			-Dashboard (on aura sous forme de graphe les produits les plus vendu et toutes information utile)
+			-les notifications et sugestions des clients
+		-page ajouter un produit
+			-Formulauire où on ajoute un produit (Nom, description, Catégorie, prix d'achat, prix de vente,stock)
+			-Un boutton pour ajouter une catégorie avec (Nom, description)
+		-page voir les produit
+			-Une liste où il y'a touts les produits (Nom et prix)
+			-On peut cliquer sur un produit pour voir les details ouu faire des modifications (Modifier nom, catégorie, prix, stock ....)
+			-On peut aussi publier un produit pour le mettre à la une. Cette publication durera 24h et sera vu en favori par le client.
+		-page faire une transaction
+			-Ajouter une vente (Formulaire où l'on selectionne le produit et mettre la quantité [la date est enregistrée automatiquement])
+			-Ajouter une dette (Formulaire où l'on selectionne le produit et mettre la quantité, le nom du client et son numero, l'echéance [la date est enregistrée automatiquement])
+			-Rembourser une dette (formulaire où l'on a la liste des dette et l'on selectionne ladite dette pour remplir le montant versser)
+		-page inventaire
+			-On a un tableau qui donne les chiffres de l'entreprise. On pourra selectionner par produit, par prix, par catégorie, par periode ....
+		-Paramettre de ma page
+			-Ici on pourra personnaliser notre site web, ce que peut voir le client 5couleur, description, image de couverture, logo ....)
+	-Body
+		-On aura le router Outlet qui va tourner en fonction de la page o^ù l'on est
+
+
+Client:
+	-Barre de recherche
+	-barre des catégories
+	-les produits à la une
+	-Liste des catégorie (Pour Chaque catégorie on listera le les produits sous format card [Photo, nom, prix, catégorie])
+	-voir produit. Si on clique dessus, on aura les detail que sont, la (les) photo(s), le nom, la catégorie, le prix, la description ...
+		Des bouttons: Appeler, Whatsapp, send message ..... 
+		
+

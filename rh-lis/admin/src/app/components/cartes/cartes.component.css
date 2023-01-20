@@ -1,0 +1,144 @@
+.recto{
+	width: 85mm;
+	height: 55mm;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: solid 0.1px teal;
+	background-image: url("/assets/rec2.png");
+	background-size: cover;
+	margin-bottom: 5%;
+}
+.axb{
+	display: flex;
+	align-self: flex-end;
+	color: white ;
+	font-weight: bold;
+	margin-bottom: 5%;
+	font-size: 60%;
+}
+.image{
+	height: 90%;
+	width: 80%;
+}
+.image img{
+	height: 100%;
+	width: 100%;
+}
+.barr{
+	width: 100%;
+	display: flex;
+	height: 10px;
+	bottom: ;
+}
+.barr1{
+	width: 50%;
+	height: 100%;
+	background-color: #173d3d;
+}
+.barr2{
+	width: 50%;
+	height: 100%;
+	background-color: #5c8c7c;
+}
+
+.verso{
+	width: 85mm;
+	height: 55mm;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border: solid 0.5px teal;
+	background-image: url("/assets/rec11.png");
+	background-size: cover;
+}
+.photo{
+	height: 25mm;
+	width: 25mm;
+
+}
+.photo img{
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+}
+.nom{
+	font-weight: bold;
+	text-align: center;
+}
+.poste{
+	font-size: 50%;
+	text-align: center;
+	font-weight: bold;
+}
+.lieuaff{
+	font-weight: bold;
+	font-size: 50%;
+	color: white;
+	text-align: center;
+}
+.left{
+	width: 55%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+.right{
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 20%;
+	padding-bottom: 5%;
+	height: 100%;
+
+}
+.aclass{
+	background-color: red;
+}
+.cartes{
+	height: 80vh;
+	overflow-y: scroll;
+	padding-bottom: 5%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.carte{
+	margin-bottom: 5%;
+	zoom: 50%;
+}
+.haut{
+	display: flex;
+	width: 60%;
+	justify-content: space-between;
+	padding: 1%;
+}
+@media print {
+  .carte { zoom:100%;
+  		height:100vh;
+  		width:100%;
+  		margin-bottom: 0%;
+  		display: flex;
+  		flex-direction: column;
+  		justify-content: center;
+		align-items: center;
+   		}
+   .haut{
+   	display: none;
+   }
+   .cartes{
+	height: auto;
+	overflow-y: hidden;
+	padding-bottom: 0%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+}
+

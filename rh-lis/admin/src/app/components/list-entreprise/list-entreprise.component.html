@@ -1,0 +1,111 @@
+<div class="search" *ngIf="!detail">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher une entreprise &#61442;"
+      /><div class="buttons" *ngIf="admin">
+        <input class="add" type="button" value="Ajouter" name="" routerLink="/add-entreprise">
+        <input class="add" type="button" value="Importer" name="" >
+      </div>
+
+</div>
+<div class="list row" *ngIf="!detail">
+
+  <div class="col-md-6 list" >
+    <h4>Liste des entreprises</h4>
+    <input *ngIf="currentEntreprise" class="add" type="button" value="Voir plus ..." name="" (click)="fdetail()">
+    <ul class="list-group" *ngIf="admin">
+      <li
+        class="list-group-item"
+        *ngFor="let entreprise of entreprises | filter: term; let i = index "
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntreprise(entreprise, i)"
+      >
+        {{ entreprise.nom }}
+      </li>
+    </ul>
+
+    <ul class="list-group" *ngIf="chcompte || gerant">
+      <li
+        class="list-group-item"
+        *ngFor="let entreprise of societe | filter : term; let i = index "
+        [class.active]="i == currentIndex"
+        (click)="setActiveEntreprise(entreprise, i)"
+      >
+        {{ entreprise.nom }}
+      </li>
+    </ul>
+
+    <!-- <button class="m-3 btn btn-sm btn-danger" (click)="removeAllEntreprises()">
+      Remove All
+    </button> -->
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentEntreprise">
+      <voir-entreprise
+        (refreshList)="refreshList()"
+        [entreprise]="currentEntreprise"
+      ></voir-entreprise>
+    </div>
+
+    <div *ngIf="!currentEntreprise">
+      <br />
+      <p>Please click on a Entreprise...</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="detail" class="detail">
+  <div class="periode">
+    <div class="dates">
+      <div class="debut">
+        <label>Debut : </label>
+        <input type="date" name="" [(ngModel)]="debut">
+      </div>
+      <div class="debut">
+        <label>Fin : </label>
+        <input type="date" name="" [(ngModel)]="fin">
+      </div>
+    </div>
+    <input type="button" value="Valider" name="" (click)="valider()" >
+  </div>
+
+  <div class="cherche">
+    <h4>{{currentEntreprise.nom}}</h4>
+    <div class="searchh">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher une entreprise &#61442;"
+      />
+    </div>
+     <h4>{{myInterimair_e.length}} interimaires</h4>
+  </div>
+  <div class="tab">
+    <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th>Interimaire</th>
+            <th class="mat">Matricule</th>
+            <th>Fin du contret</th>
+            <th>Nombre de jour travaillé</th>
+            <th>Nombre d'absence</th>
+            <th class="arr">Retard</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let interimaire of myInterimair_e | filter: term; let i = index">
+            <td>{{interimaire.nom}}</td>
+            <td class="mat">{{interimaire.matricule}}</td>
+            <td>{{interimaire.fin}}</td>
+            <td>{{interimaire.present}}</td>
+            <td >{{interimaire.absences }}</td>
+            <td class="arr">{{interimaire.retard}}</td>
+          </tr>
+
+        </tbody>
+</table>
+  </div>
+  
+</div>

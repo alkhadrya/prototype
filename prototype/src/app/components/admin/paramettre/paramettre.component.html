@@ -1,0 +1,107 @@
+<div class="add">
+  <button type="" class="btn btn-primary" routerLink="/add-categorie">Ajouter categorie</button>
+</div>
+<form>
+<div class="photos">
+     <label for="description">Choisir une photo</label>
+      <div class="form-group col-12">
+  <input type="file"
+             id="logo"
+             #userLogo
+             (change)="onFileSelectedd($event)"
+             name="logo"
+             autocomplete="off"
+          />
+          </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="nom">Nom de l'entreprise</label>
+      <input type="" class="form-control" id="nom" name="nom"  [(ngModel)]="parametre.nom" aria-describedby="emailHelp" placeholder="Entrez le nom du site">
+    </div>
+    <div class="form-group">
+      <label for="nom">Description</label>
+      <input type="" class="form-control" id="description" name="description"  [(ngModel)]="parametre.description" aria-describedby="emailHelp" placeholder="Entrez le description de l'entreprise">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="couleur">Couleur</label>
+      <input type="" class="form-control"  name="couleur" id="couleur" [(ngModel)]="parametre.couleur" aria-describedby="emailHelp" placeholder="La couleur du site">
+    </div>
+    <div class="form-group">
+      <label for="type">Type de l'entreprise</label>
+      <input type="" name="type" class="form-control" [(ngModel)]="parametre.type" id="type" aria-describedby="emailHelp" placeholder="Entrez le type de l'entreprise">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="adresse">Adresse</label>
+      <input type="" class="form-control" id="adresse" [(ngModel)]="parametre.adresse" name="adresse" aria-describedby="emailHelp" placeholder="Entrez votre adresse">
+    </div>
+    <div class="form-group">
+      <label for="contact">Telephone</label>
+      <input type="" name="contact" class="form-control" [(ngModel)]="parametre.contact" id="contact" aria-describedby="emailHelp" placeholder="Entrez votre contact">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="facebook">Facebook</label>
+      <input type="" class="form-control" id="facebook" [(ngModel)]="parametre.facebook" name="facebook" aria-describedby="emailHelp" placeholder="C'est quoi votre lien facebook">
+    </div>
+    <div class="form-group">
+      <label for="instagram">Instagram</label>
+      <input type="" name="instagram" class="form-control" [(ngModel)]="parametre.instagram" id="instagram" aria-describedby="emailHelp" placeholder="C'est quoi votre lien instagram">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="tweeter">Tweeter</label>
+      <input type="" class="form-control" id="tweeter" [(ngModel)]="parametre.tweeter" name="tweeter" aria-describedby="emailHelp" placeholder="C'est quoi votre lien tweeter">
+    </div>
+    <div class="form-group">
+      <label for="tiktok">Tiktok</label>
+      <input type="" name="tiktok" class="form-control" [(ngModel)]="parametre.tiktok" id="tiktok" aria-describedby="emailHelp" placeholder="C'est quoi votre lien tiktok">
+    </div>
+  </div>
+
+  
+
+  <div class="list_tof">
+          <ul class="list-group">
+            <li *ngFor="let photoo of data_tof;let i = index" class="list-group-item"><img class="miniature" src="{{photoo.url}}">  <small id="emailHelp" class="form-text text-muted"><input type="" name="{{photoo.description}}" [(ngModel)]="photoo.description"></small><br><button (click)="delete(i)" class="bg bg-danger danger mr-2">Supprimer</button></li>
+          </ul>
+  </div>
+  
+  <div class="photos" *ngIf="tof">
+    <div>
+     <label for="description">Choisir une photo</label>
+      <div class="form-group col-12">
+       <input type="file"
+             id="file"
+             #userPhoto
+             (change)="onFileSelected($event)"
+             name="image"
+             autocomplete="off"
+          />
+          </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description de la photo</label>
+        <input type="" name="desc" class="form-control" [(ngModel)]="photo.description" id="des" aria-describedby="emailHelp" placeholder="Entrez la description de la photo">
+        <small id="emailHelp" class="form-text text-muted">Quelques details de la photo.</small>
+    </div>
+    <br>
+    <div class="addtof">
+      <button (click)="push_tof()" class="btn btn-success">Ajouter</button>
+    </div>
+  </div> 
+  <br>
+  <div class="addtof">
+    <button (click)="addTof()" class="btn btn-primary" *ngIf="!tof">Ajouter une photo de couverture</button>
+  </div>
+  
+
+  <button type="submit" class="btn btn-success sumit" (click)="saveParametre()">Valider le parametre</button>
+</form> 
+

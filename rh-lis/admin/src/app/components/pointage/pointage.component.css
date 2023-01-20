@@ -1,0 +1,24 @@
+.table{
+	width: 100%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .mat{
+  	display: none;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .arr{
+  	display: none;
+  }
+}
+.searchTerm::placeholder  {
+  font-family: FontAwesome;
+}
+.search{
+  width: 50%;
+}
+.search input{
+  width: 100%;
+}

@@ -1,0 +1,111 @@
+
+<form>
+
+  <div class="flex">
+    <div class="form-group">
+      <label for="nom">Nom du produit</label>
+      <input type="" class="form-control" id="nom" name="nom"  [(ngModel)]="currentProduit.nom" aria-describedby="emailHelp" placeholder="Entrez le nom du produit">
+    </div>
+    <div class="form-group">
+      <label for="nom">Catégorie</label>
+      <select class="form-control" aria-label="Default select example" name="categorie" [(ngModel)]="currentProduit.categorie">
+        <option value="{{categorie.nom}}"*ngFor="let categorie of categories">{{categorie.nom}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="achat">Prix d'achat</label>
+      <input type="number" class="form-control"  name="achat" id="achat" [(ngModel)]="currentProduit.achat" aria-describedby="emailHelp" placeholder="Entrez le prix d'achat">
+    </div>
+    <div class="form-group">
+      <label for="vente">Prix de vente</label>
+      <input type="number" name="vente" class="form-control" [(ngModel)]="currentProduit.prix" id="vente" aria-describedby="emailHelp" placeholder="Entrez le prix de vente">
+    </div>
+  </div>
+  <div class="flex">
+    <div class="form-group">
+      <label for="stock">Nombre de produit dans le stock</label>
+      <input type="number" class="form-control" id="stock" [(ngModel)]="currentProduit.stock" name="stock" aria-describedby="emailHelp" placeholder="Entrez le nombre dans le stock">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="" name="description" class="form-control" [(ngModel)]="currentProduit.description" id="description" aria-describedby="emailHelp" placeholder="Entrez la description">
+      <small id="emailHelp" class="form-text text-muted">Quelques details du produit.</small>
+    </div>
+  </div>
+  
+
+  <div class="list_tof">
+          <ul class="list-group">
+            <li *ngFor="let photoo of data_tof;let i = index" class="list-group-item"><img class="miniature" src="{{photoo.url}}">  <small id="emailHelp" class="form-text text-muted"><input type="" name="{{photoo.description}}" [(ngModel)]="photoo.description"></small><br><button (click)="delete(i)" class="bg bg-danger danger mr-2">Supprimer</button></li>
+          </ul>
+  </div>
+  
+  <div class="photos" *ngIf="tof">
+    <div>
+     <label for="description">Choisir une photo</label>
+      <div class="form-group col-12">
+       <input type="file"
+             id="file"
+             #userPhoto
+             (change)="onFileSelected($event)"
+             name="image"
+             autocomplete="off"
+          />
+          </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description de la photo</label>
+        <input type="" name="desc" class="form-control" [(ngModel)]="photo.description" id="des" aria-describedby="emailHelp" placeholder="Entrez la description">
+        <small id="emailHelp" class="form-text text-muted">Quelques details de la photo.</small>
+    </div>
+    <br>
+    <div class="addtof">
+      <button (click)="push_tof()" class="btn btn-success">Ajouter</button>
+    </div>
+  </div>
+  <br>
+  <div class="addtof add_j"> 
+    <button (click)="addTof()" class="btn btn-primary" *ngIf="!tof">Ajouter une photo</button>
+  </div>
+
+
+  <div class="list_tof">
+          <ul class="list-group">
+            <li *ngFor="let detail of data_detail;let i = index" class="list-group-item"><div class="flex"><input type="" name="{{detail.titre}}" [(ngModel)]="detail.titre"><input type="" name="{{detail.valeur}}" [(ngModel)]="detail.valeur"><br><button (click)="d_delete(i)" class="bg bg-danger danger mr-2">Supprimer</button></div></li>
+          </ul>
+  </div>
+  
+  <div class="photos" *ngIf="det">
+  <div class="flex">
+    <div class="form-group">
+        <label for="description">Titre</label>
+        <input type="" name="titre" class="form-control" [(ngModel)]="detail.titre" id="dees" aria-describedby="emailHelp" placeholder="Exemple : Couleur">
+        <small id="emailHelp" class="form-text text-muted">Mettre un titre decriptif du detail</small>
+    </div>
+    <div class="form-group">
+        <label for="description">Valeur du detail</label>
+        <input type="" name="valeur" class="form-control" [(ngModel)]="detail.valeur" id="des" aria-describedby="emailHelp" placeholder="Exemple: Rouge">
+        <small id="emailHelp" class="form-text text-muted">Valeur de ce detail.</small>
+    </div>
+  </div>
+    <br>
+    <div class="addtof">
+      <button (click)="push_detail()" class="btn btn-success">Ajouter</button>
+    </div>
+  </div> 
+  <br>
+  <div class="addtof">
+    <button (click)="addDetail()" class="btn btn-primary" *ngIf="!det">Ajouter un detail</button>
+  </div>
+
+
+  
+
+  
+  
+
+  <button type="submit" class="btn btn-success sumit" (click)="updateProduit()">Modifier le produit</button>
+</form> 
+

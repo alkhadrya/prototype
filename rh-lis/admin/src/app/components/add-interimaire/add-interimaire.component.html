@@ -1,0 +1,294 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+  	<div class="form-group col-12">
+			 <input type="file"
+			 id="file"
+			 #userPhoto
+			 (change)="onFileSelected($event)"
+			 name="image"
+			 autocomplete="off"
+ 			/>
+		</div>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="nom">Nom</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="nom"
+			        required
+			        [(ngModel)]="interimaire.nom"
+			        name="nom"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="cni">CNI</label>
+      			<input
+			        class="form-control"
+			        id="cni"
+			        required
+			        [(ngModel)]="interimaire.cni"
+			        name="cni"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="datenaiss">Date de naissance</label>
+      			<input
+			        type="date"
+			        class="form-control"
+			        id="datenaiss"
+			        required
+			        [(ngModel)]="interimaire.datenaiss"
+			        name="datenaiss"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="lieunaiss">Lieu de naissance</label>
+      			<input
+			        class="form-control"
+			        id="lieunaiss"
+			        required
+			        [(ngModel)]="interimaire.lieunaiss"
+			        name="lieunaiss"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="formation">Formation</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="formation"
+			        required
+			        [(ngModel)]="interimaire.formation"
+			        name="formation"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="nationnalite">Nationnalité</label>
+      			<input
+			        class="form-control"
+			        id="nationnalite"
+			        required
+			        [(ngModel)]="interimaire.nationnalite"
+			        name="nationnalite"
+      			/>
+    	</div>
+    </div>
+
+ <div class="flex">
+    	<div class="form-group">
+      		<label for="lieuaff">Lieu d'affectation</label>
+      			<select class="form-select form-control" 
+			       	id="lieuaff"
+			        required
+			        [(ngModel)]="interimaire.lieuaff"
+			        name="lieuaff"
+			      	aria-label="Type de contrat">
+		  			<option 
+		  				*ngFor="let entreprise of entreprises; let i = index" selected value="{{entreprise.nom}}">{{entreprise.nom}}
+		  			</option>
+		</select>
+    </div>
+    	<div class="form-group">
+      		<label for="dpt">Departement</label>
+      			<input
+			        class="form-control"
+			        id="dpt"
+			        required
+			        [(ngModel)]="interimaire.dpt"
+			        name="dpt"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="lieusignature">Lieu de signature</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="lieusignature"
+			        required
+			        [(ngModel)]="interimaire.lieusignature"
+			        name="lieusignature"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="datesignature">Date de signature</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="datesignature"
+			        required
+			        [(ngModel)]="interimaire.datesignature"
+			        name="datesignature"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="typecontrat">Type du contrat</label>
+      		<select class="form-select form-control" aria-label="Type contrat" [(ngModel)]="interimaire.typecontrat">
+					  <option selected value="CDI">CDI</option>
+					  <option value="CDD">CDD</option>
+					  <option value="STAGE">STAGE</option>
+					  <option value="CPS">CPS</option>
+					</select>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="poste">Poste</label>
+      			<input
+			        class="form-control"
+			        id="poste"
+			        required
+			        [(ngModel)]="interimaire.poste"
+			        name="poste"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="debutcontrat">Debut du contrat</label>
+      			<input
+			        type="date"
+			        class="form-control"
+			        id="debutcontrat"
+			        required
+			        [(ngModel)]="interimaire.debutcontrat"
+			        name="debutcontrat"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="fincontrat">Fin du contrat</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="fincontrat"
+			        required
+			        [(ngModel)]="interimaire.fincontrat"
+			        name="fincontrat"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="type_pay">Type de paiement</label>
+      		<input
+			        class="form-control"
+			        id="type_pay"
+			        required
+			        [(ngModel)]="interimaire.type_pay"
+			        name="type_pay"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="salairenet">Salaire net</label>
+      			<input
+			        class="form-control"
+			        id="salairenet"
+			        required
+			        [(ngModel)]="interimaire.salairenet"
+			        name="salairenet"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="salaire">Salaire</label>
+      		<input
+			        class="form-control"
+			        id="salaire"
+			        required
+			        [(ngModel)]="interimaire.salaire"
+			        name="salaire"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="retenu">Retenu</label>
+      			<input
+			        class="form-control"
+			        id="retenu"
+			        required
+			        [(ngModel)]="interimaire.retenu"
+			        name="retenu"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="tel_1">Telephone 1</label>
+      		<input
+			        class="form-control"
+			        id="tel_1"
+			        required
+			        [(ngModel)]="interimaire.tel_1"
+			        name="tel_1"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="tel_2">Telephone 2</label>
+      			<input
+			        class="form-control"
+			        id="tel_2"
+			        required
+			        [(ngModel)]="interimaire.tel_2"
+			        name="tel_2"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="urgence1">Telephone d'urgence</label>
+      		<input
+			        class="form-control"
+			        id="urgence1"
+			        required
+			        [(ngModel)]="interimaire.urgence1"
+			        name="urgence1"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="urgence2">Lien de parenté</label>
+      			<input
+			        class="form-control"
+			        id="urgence2"
+			        required
+			        [(ngModel)]="interimaire.urgence2"
+			        name="urgence2"
+      			/>
+    	</div>
+    </div>
+
+
+    
+
+    <button (click)="saveInterimaire()" class="btn btn-success">Valider</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Entrepise Ajouter avec succes!</h4>
+    <button class="btn btn-success" (click)="newInterimaire()">Ajouter un nouveau</button>
+  </div>
+</div>

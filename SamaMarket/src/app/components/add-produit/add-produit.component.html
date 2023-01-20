@@ -1,0 +1,65 @@
+<div class="container">
+        <h2>Ajout d'un nouveau produit</h2>
+        <div class="row10" *ngIf="!submitted">
+        <div class="flex">
+        <div class="inputBox ph">
+                    <input 
+                    class="ph" 
+                    name="" 
+                    type="file"
+                     id="file"
+                     #userPhoto
+                     (change)="onFileSelected($event)"
+                     name="image"
+                     autocomplete="off"
+                     required>
+                    <span class="line"></span>
+        </div>
+        </div>
+                    <div class="flex">
+                <div class="inputBox">
+                    <input type="text" name="nom" required [(ngModel)]="produit.nom">
+                    <span class="text"> Nom du Produit</span>
+                    <span class="line"></span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="matricule" required [(ngModel)]="produit.matricule">
+                    <span class="text"> Matricule</span>
+                    <span class="line"></span>
+                </div> 
+            </div>
+            <div class="flex">
+                <div class="inputBox">
+                    <input type="text" name="categorie" required [(ngModel)]="produit.categorie">
+                    <span class="text"> Categorie</span>
+                    <span class="line"></span>
+                </div>
+                <div class="inputBox">
+                    <input type="number" name="stock" required [(ngModel)]="produit.stock">
+                    <span class="text"> Nombre dans le stock</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="inputBox">
+                    <input type="text" name="achat" required [(ngModel)]="produit.achat">
+                    <span class="text"> Prix d'achat</span>
+                    <span class="line"></span>
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="prix" required [(ngModel)]="produit.prix">
+                    <span class="text"> Prix de vente</span>
+                    <span class="line"></span>
+                </div>
+            </div>
+        <div class="row10">
+            <div class="col">
+                <input type="submit" (click)="saveProduit()" class="btn btn-success ph" value="Ajouter">
+            </div>
+        </div>
+</div>
+<div *ngIf="submitted">
+    <h4>Produit Ajouter avec succes!</h4>
+    <button class="btn btn-success ph" (click)="newProduit()">Ajouter un nouveau</button>
+  </div>
+</div>

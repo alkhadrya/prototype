@@ -1,0 +1,78 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group col-12">
+			 <input type="file"
+						 id="file"
+						 #userPhoto
+						 (change)="onFileSelected($event)"
+						 name="image"
+						 autocomplete="off"
+ 					/>
+		</div>
+		<br>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="nom">Nom</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="nom"
+			        required
+			        [(ngModel)]="personnel.nom"
+			        name="nom"
+      			/>
+    	</div>
+
+</div>
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="privilege">Privilege</label>
+      		<select class="form-select form-control" aria-label="Valeur du paiement" (click)="profil()" [(ngModel)]="personnel.privilege">
+					  <option selected value="Admin">Admin</option>
+					  <option value="Superviseur"> Superviseur</option>
+					  <option  value="Chargé de compte"> Chargé de compte</option>
+					  <option  value="gerant"> Gerant</option>
+					</select>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="poste">Poste</label>
+      			<input
+			        class="form-control"
+			        id="poste"
+			        required
+			        [(ngModel)]="personnel.poste"
+			        name="poste"
+      			/>
+    	</div>
+    </div>
+    <br>
+    <ng-multiselect-dropdown
+    		*ngIf="chcompte"
+			  [placeholder]="'Choisissez les entreprises'"
+			  [settings]="dropdownSettings"
+			  [data]="dropdownList"
+			  (onSelect)="onItemSelect($event)"
+			  (onSelectAll)="onSelectAll($event)"
+			  [(ngModel)]="personnel.entreprise"
+				>
+			</ng-multiselect-dropdown>
+			<ng-multiselect-dropdown
+    		*ngIf="gerant"
+			  [placeholder]="'Choisissez l entreprise'"
+			  [settings]="dropdownSettings_1"
+			  [data]="dropdownList"
+			  (onSelect)="onItemSelect($event)"
+			  (onSelectAll)="onSelectAll($event)"
+			  [(ngModel)]="personnel.entreprise"
+				>
+			</ng-multiselect-dropdown>
+			<br>
+    <button (click)="savePersonnel()" class="btn btn-success">Valider</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Entrepise Ajouter avec succes!</h4>
+    <button class="btn btn-success" (click)="newPersonnel()">Ajouter un nouveau</button>
+  </div>
+</div>

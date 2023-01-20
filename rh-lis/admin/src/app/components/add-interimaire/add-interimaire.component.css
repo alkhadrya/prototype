@@ -1,0 +1,23 @@
+.submit-form {
+  max-width: 50%;
+  margin: auto;
+  overflow-y: scroll;
+  height: 90vh;
+  padding-bottom: 5%;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-control{
+  width: 100%;
+}
+
+.form-group{
+  width: 40%;
+}
+.submit-form::-webkit-scrollbar {
+display: none;
+
+}

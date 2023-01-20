@@ -1,0 +1,56 @@
+<div class="search">
+      <input
+        type="text"
+        [(ngModel)]="term"
+        class="searchTerm"
+        placeholder="Rechercher un interimaire &#61442;"
+      /><div class="buttons">
+        <input class="add" type="button" value="Ajouter" name="" routerLink="/add-interimaire">
+        <!-- <input class="add" type="button" value="Importer" name="" > -->
+      </div>
+
+</div>
+<div class="list row">
+
+  <div class="col-md-6 list" >
+    <h4>Liste des interimaires </h4>
+    <ul class="list-group" *ngIf="admin">
+      <li
+        class="list-group-item flex"
+        *ngFor="let interimaire of interimaires | filter: term; let i = index "
+        [class.active]="i == currentIndex"
+        (click)="setActiveInterimaire(interimaire, i)"
+      >
+       <span>{{ interimaire.nom }}</span>  <span>{{ interimaire.lieuaff }}</span> 
+      </li>
+    </ul>
+
+    <ul class="list-group" *ngIf="chcompte || gerant">
+      <li
+        class="list-group-item flex"
+        *ngFor="let interimaire of societe | filter: term; let i = index "
+        [class.active]="i == currentIndex"
+        (click)="setActiveInterimaire(interimaire, i)"
+      >
+       <span>{{ interimaire.nom }}</span>  <span>{{ interimaire.lieuaff }}</span> 
+      </li>
+    </ul>
+
+   <!--  <button class="m-3 btn btn-sm btn-danger" (click)="removeAllInterimaires()">
+      Remove All
+    </button> -->
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentInterimaire">
+      <voir-interimaire
+        (refreshList)="refreshList()"
+        [interimaire]="currentInterimaire"
+      ></voir-interimaire>
+    </div>
+
+    <div *ngIf="!currentInterimaire">
+      <br />
+      <p>Please click on a Interimaire...</p>
+    </div>
+  </div>
+</div>

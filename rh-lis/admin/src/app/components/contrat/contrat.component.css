@@ -1,0 +1,45 @@
+.tete{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+.logo{
+	width: 50%;
+	margin-top: -7%;
+}
+.logo img{
+	width: 300px;
+	height: 100px;
+}
+.adress{
+	text-align: right;
+}
+.page{
+	display: flex;
+	flex-direction: column;
+	width: 210mm;
+	height: 210mm;
+	overflow-y: scroll;
+	font-size: 0.75rem;
+	padding:5%;
+}
+.all{
+	display: flex;
+	flex-direction: column;
+	height: 85vh;
+}
+h1{
+	font-size:1rem ;
+}
+h4{
+	font-size:0.75rem ;
+}
+.flex{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.gras{
+	font-weight: bold ;
+}

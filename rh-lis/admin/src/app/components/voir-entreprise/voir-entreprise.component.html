@@ -1,0 +1,214 @@
+<div *ngIf="currentEntreprise" class="edit-form list">
+  <h1>{{currentEntreprise.nom}}</h1>
+<div class="flex">
+<ul>
+	<li><span>Nom : </span>{{currentEntreprise.nom}}</li>
+	<li><span>Representant : </span>{{currentEntreprise.representant}}</li>
+	<li><span>Lieu de signature : </span>{{currentEntreprise.lieusignature}}</li>
+	<li><span>Debut du partenariat : </span>{{currentEntreprise.debutpartenariat}}</li>
+	<li><span>Valeur du paiement : </span>{{currentEntreprise.valeurpayment}}</li>
+</ul>
+<ul>
+	<li><span>Ninea : </span>{{currentEntreprise.ninea}}</li>
+	<li><span>Description : </span>{{currentEntreprise.nom}}</li>
+	<li><span>Date de signature : </span>{{currentEntreprise.datesignature}}</li>
+	<li><span>Fin du partenariat : </span>{{currentEntreprise.finpartenariat}}</li>
+	<li><span>Type du paiement : </span>{{currentEntreprise.typepayment}}</li>
+</ul>
+</div>
+
+<!-- 
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Journalier</th>
+      <th scope="col">Hebdomadaire</th>
+      <th scope="col">Mensuel</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Nombre de presents</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">Nombre d'absents</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">Retard accumulé</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> -->
+
+ <form *ngIf="toggle_update">
+
+ 	<h1>Modifier les informations</h1>
+
+   <div>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="nom">Nom</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="nom"
+			        required
+			        [(ngModel)]="currentEntreprise.nom"
+			        name="nom"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="ninea">Ninea</label>
+      			<input
+			        class="form-control"
+			        id="ninea"
+			        required
+			        [(ngModel)]="currentEntreprise.ninea"
+			        name="ninea"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="representant">Representant</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="representant"
+			        required
+			        [(ngModel)]="currentEntreprise.representant"
+			        name="representant"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="ninea">Description</label>
+      			<input
+			        class="form-control"
+			        id="ninea"
+			        required
+			        [(ngModel)]="currentEntreprise.ninea"
+			        name="ninea"
+      			/>
+    	</div>
+    </div>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="lieusignature">Lieu de signature</label>
+      			<input
+			        type="text"
+			        class="form-control"
+			        id="lieusignature"
+			        required
+			        [(ngModel)]="currentEntreprise.lieusignature"
+			        name="lieusignature"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="datesignature">Date de signature</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="datesignature"
+			        required
+			        [(ngModel)]="currentEntreprise.datesignature"
+			        name="datesignature"
+      			/>
+    	</div>
+    </div>
+    <div class="flex">
+    	<div class="form-group">
+      		<label for="debutpartenariat">Debut du partenariat</label>
+      			<input
+			        type="date"
+			        class="form-control"
+			        id="debutpartenariat"
+			        required
+			        [(ngModel)]="currentEntreprise.debutpartenariat"
+			        name="debutpartenariat"
+      			/>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="finpartenariat">Fin du partenariat</label>
+      			<input
+      				type="date"
+			        class="form-control"
+			        id="finpartenariat"
+			        required
+			        [(ngModel)]="currentEntreprise.finpartenariat"
+			        name="finpartenariat"
+      			/>
+    	</div>
+    </div>
+
+    <div class="flex">
+    	<div class="form-group">
+    		<label for="finpartenariat">Type du paiement</label>
+      		<select class="form-select form-control" aria-label="Valeur du paiement" [(ngModel)]="currentEntreprise.typepayment">
+					  <option selected value="Paiement par poucentage">Paiement par poucentage</option>
+					  <option value="Paiement par poucentage">Paement par Agent</option>
+					</select>
+    	</div>
+
+    	<div class="form-group">
+      		<label for="valeurpayment">Valeur du paiement</label>
+      			<input
+			        class="form-control"
+			        id="valeurpayment"
+			        required
+			        [(ngModel)]="currentEntreprise.valeurpayment"
+			        name="valeurpayment"
+      			/>
+    	</div>
+    </div>
+    
+
+    <button (click)="updateEntreprise()" class="btn btn-success">Update</button>
+  </div>
+  </form>
+
+<!--   <button
+    class="badge badge-primary mr-2"
+    *ngIf="currentEntreprise.published"
+    (click)="updatePublished(false)"
+  >
+    UnPublish
+  </button>
+  <button
+    *ngIf="!currentEntreprise.published"
+    class="badge badge-primary mr-2"
+    (click)="updatePublished(true)"
+  >
+    Publish
+  </button> -->
+
+<div class="buttons">
+	 
+  <button class="bg bg-danger mr-2" (click)="deleteEntreprise()">
+    Supprimer
+  </button>
+
+  <button type="submit" class="bg bg-success" (click)="modif()">
+    Modifier les informations
+  </button>
+</div> 
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentEntreprise">
+  <br />
+  <p>Cannot access this Entreprise...</p>
+</div>

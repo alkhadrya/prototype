@@ -1,0 +1,16 @@
+.submit-form {
+  max-width: 50%;
+  margin: auto;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-control{
+  width: 100%;
+}
+
+.form-group{
+  width: 40%;
+}
